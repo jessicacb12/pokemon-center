@@ -1,0 +1,40 @@
+image: node:alpine
+
+stages:
+  - build
+  - migrate
+  - test
+
+cache:
+  paths:
+    - node_modules/
+
+build:
+  stage: build
+  script: 
+    - echo "Building"
+    - export NODE_ENV=remote-ci-test
+    - npm install --unsafe-perm
+  only:
+    changes:
+      - package.json
+      - package-lock.json
+
+migrate:
+  stage: migrate
+  script:
+    - echo "Migrating"
+    - export NODE_ENV=remote-ci-test
+    - npm run db:migrate
+  only:
+    changes:
+      - migrations/*
+
+test:
+  stage:  test
+  script: 
+    - echo "Testing"
+    - export NODE_ENV=remote-ci-test
+    - npm run lint
+    - npm run test
+    

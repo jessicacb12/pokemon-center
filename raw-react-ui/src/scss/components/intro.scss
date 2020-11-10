@@ -1,0 +1,64 @@
+.intro {
+    overflow: hidden;
+    background-color: #ecb31e;
+    height: 100%;
+    & .top {
+        padding: 4% 0;
+        background-color: white;
+        & h1 {
+            text-align: center;
+        }
+    }
+    & .separator {
+        height: 7%;
+        background-color: #e2a202;
+    }
+    & .menu {
+        width: fit-content;
+        margin: 10% auto;
+        display: flex;
+
+        & .menu_item {
+            & button {
+                padding: 20px;
+                margin: 0 20px;
+                border-radius: 50%;
+                box-shadow: 0 5px 15px black;
+        
+                &:hover {
+                    box-shadow: none;
+                }
+
+                & img {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+            
+            & p {
+                text-align: center;
+                margin-block-start: 10px;
+                font-weight: bold;
+                opacity: 0;
+                transition: opacity .5s;
+            }
+
+            &:hover p {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .intro .menu {
+        display: block;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 450px) {
+    .intro .top {
+        padding: 4%;
+    }
+}

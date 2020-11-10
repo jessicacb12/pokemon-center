@@ -1,0 +1,2 @@
+--require ./test/bootstrap
+--timeout 30000

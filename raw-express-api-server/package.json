@@ -1,0 +1,51 @@
+{
+  "name": "ithb-webtech-express-api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "watch": "./node_modules/.bin/nodemon ./bin/www",
+    "sequelize": "./node_modules/.bin/sequelize",
+    "mocha": "./node_modules/.bin/mocha",
+    "ci": "npm run lint | npm run test",
+    "db:migrate": "./node_modules/.bin/sequelize db:migrate",
+    "db:migrate:optimization": "./node_modules/.bin/sequelize db:migrate --migrations-path=migrations/optimizations",
+    "db:drop": "./node_modules/.bin/sequelize db:drop",
+    "db:create": "./node_modules/.bin/sequelize db:create",
+    "db:reset": "./node_modules/.bin/sequelize db:migrate:undo:all",
+    "test": "./node_modules/.bin/mocha test/scripts/**/*.test.js",
+    "connection-test": "node ./scripts/connectionTest.js",
+    "lint": "./node_modules/.bin/eslint --ignore-path .gitignore .",
+    "lint:fix": "./node_modules/.bin/eslint --fix --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "config": "^3.0.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^7.0.0",
+    "express": "~4.16.0",
+    "express-ws": "^4.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "mysql2": "^2.2.5",
+    "nodemailer": "^6.0.0",
+    "pg": "^7.9.0",
+    "sequelize": "^5.22.3",
+    "sequelize-cli": "^5.5.1",
+    "uuid": "^3.3.2",
+    "ws": "^6.2.1"
+  },
+  "devDependencies": {
+    "husky": "^3.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "js-yaml": "^3.13.1",
+    "mocha": "^6.0.2",
+    "sequelize-fixtures": "^0.10.0",
+    "nodemon": "^1.18.10",
+    "sinon": "^7.3.1",
+    "supertest": "^4.0.2"
+  }
+}
